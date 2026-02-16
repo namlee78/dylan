@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" style=""><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>U.S. Service Academy Nomination Guide</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;family=Merriweather:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -92,6 +96,7 @@
         background-color: #3182ce;
         color: white;
       }
+
       .badge-standard {
         background-color: #718096;
         color: white;
@@ -197,6 +202,41 @@
         z-index: 9999;
       }
 
+      /* Force initial hiding */
+      body #protected-content {
+        display: none;
+      }
+
+      /* Initial States - CSS Controlled */
+      #protected-content {
+        display: none;
+      }
+
+      #protected-content.unlocked {
+        display: block !important;
+      }
+
+      #index-page,
+      #document-1,
+      #email-index,
+      #email-1,
+      #email-2,
+      #email-3,
+      #email-4 {
+        display: none;
+      }
+
+      /* Visibility States */
+      #index-page.page-visible,
+      #document-1.page-visible,
+      #email-index.page-visible,
+      #email-1.page-visible,
+      #email-2.page-visible,
+      #email-3.page-visible,
+      #email-4.page-visible {
+        display: block !important;
+      }
+
       #password-input {
         width: 100%;
         padding: 15px;
@@ -241,32 +281,56 @@
       }
     </style>
   </head>
-  <body style="">
+  <body>
     <!-- Password Protection Layer -->
-    <div id="login-screen" style="display: none;">
-      <div style="
+    <div id="login-screen">
+      <div
+        style="
           background: white;
           padding: 40px 50px;
           border-radius: 12px;
           box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
           text-align: center;
           max-width: 400px;
-        ">
+        "
+      >
         <h2 style="margin-bottom: 10px; color: #0a2540; font-family: 'Merriweather', serif">Protected Document</h2>
         <p style="color: #718096; font-size: 0.9rem; margin-bottom: 30px">Enter access code</p>
-        <input type="password" id="password-input" maxlength="9" placeholder="•••••••••" onkeypress="if (event.key === 'Enter') checkPassword();" style="">
-        <button onclick="checkPassword()" style="width: 100%; padding: 15px; background: rgb(49, 130, 206); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: 0.3s;" onmouseover="this.style.background = '#2c5282'" onmouseout="this.style.background = '#3182ce'">
+        <input
+          type="password"
+          id="password-input"
+          maxlength="9"
+          placeholder="•••••••••"
+          onkeypress="if (event.key === 'Enter') checkPassword();"
+        />
+        <button
+          onclick="checkPassword()"
+          style="
+            width: 100%;
+            padding: 15px;
+            background: rgb(49, 130, 206);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+          "
+          onmouseover="this.style.background = '#2c5282'"
+          onmouseout="this.style.background = '#3182ce'"
+        >
           🔓 Unlock Document
         </button>
-        <p id="error-msg" style="color: rgb(229, 62, 62); font-size: 0.85rem; margin-top: 15px; display: none;">
+        <p id="error-msg" style="color: #e53e3e; font-size: 0.85rem; margin-top: 15px; display: none">
           ❌ Incorrect password. Please try again.
         </p>
       </div>
     </div>
 
-    <div class="report-container" id="protected-content" style="display: block;">
+    <div class="report-container" id="protected-content">
       <!-- LEVEL 1: MAIN INDEX PAGE -->
-      <div id="index-page" style="display: none;">
+      <div id="index-page">
         <header style="text-align: center; margin-bottom: 50px">
           <h1 style="border-bottom: none; padding-bottom: 0">📚 Document Collection</h1>
           <p class="subtitle" style="margin-bottom: 0">Secured Document Repository</p>
@@ -274,7 +338,11 @@
 
         <div style="max-width: 700px; margin: 0 auto">
           <!-- Document 1 Link -->
-          <div class="source-card" style="cursor: pointer; border-left: 4px solid #3182ce" onclick="showPage('document-1')">
+          <div
+            class="source-card"
+            style="cursor: pointer; border-left: 4px solid #3182ce"
+            onclick="showPage('document-1')"
+          >
             <div style="display: flex; align-items: center; gap: 20px">
               <div style="font-size: 2rem; font-weight: bold; color: #3182ce; min-width: 60px">1.</div>
               <div style="flex: 1">
@@ -288,7 +356,11 @@
           </div>
 
           <!-- Document 2 Link -->
-          <div class="source-card" style="cursor: pointer; border-left: 4px solid #38a169" onclick="showPage('email-index')">
+          <div
+            class="source-card"
+            style="cursor: pointer; border-left: 4px solid #38a169"
+            onclick="showPage('email-index')"
+          >
             <div style="display: flex; align-items: center; gap: 20px">
               <div style="font-size: 2rem; font-weight: bold; color: #38a169; min-width: 60px">2.</div>
               <div style="flex: 1">
@@ -317,7 +389,7 @@
       </div>
 
       <!-- LEVEL 2A: DOCUMENT 1 CONTENT -->
-      <div id="document-1" style="display: block;">
+      <div id="document-1">
         <button onclick="showPage('index-page')" class="btn-back">← Back to Index</button>
 
         <header>
@@ -346,14 +418,20 @@
           <p><em>Official Service Academy Nominations</em></p>
           <div class="contact-grid">
             <div class="contact-item">
-              <strong>🌐 Website:</strong><br><a href="https://gill.house.gov/services/service-academy-nominations" target="_blank">gill.house.gov/services</a><br><strong>📧 Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="316569030770525055545c48715c50585d1f595e4442541f565e47">[email&#160;protected]</a>
+              <strong>🌐 Website:</strong><br /><a
+                href="https://gill.house.gov/services/service-academy-nominations"
+                target="_blank"
+                >gill.house.gov/services</a
+              ><br /><strong>📧 Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a7f3ff9591e6c4c6c3c2cadee7cac6cecb89cfc8d2d4c289c0c8d1">[email&#160;protected]</a>
             </div>
-            <div class="contact-item"><strong>🏛️ DC Office:</strong><br>(202) 225-7772</div>
-            <div class="contact-item"><strong>📍 District HQ:</strong><br>320 E. Main St., Double Oak, TX 75077</div>
-            <div class="contact-item"><strong>📅 Status:</strong><br>Procedures finalizing (First Cycle)</div>
+            <div class="contact-item"><strong>🏛️ DC Office:</strong><br />(202) 225-7772</div>
+            <div class="contact-item"><strong>📍 District HQ:</strong><br />320 E. Main St., Double Oak, TX 75077</div>
+            <div class="contact-item"><strong>📅 Status:</strong><br />Procedures finalizing (First Cycle)</div>
           </div>
           <div class="strategy-box">
-            <span style="font-weight: bold; color: #c05621; display: block; margin-bottom: 8px">🎯 Strategic Analysis &amp; Actions</span>
+            <span style="font-weight: bold; color: #c05621; display: block; margin-bottom: 8px"
+              >🎯 Strategic Analysis & Actions</span
+            >
             This is your <strong>statistical best opportunity</strong>. As a newly elected Representative in his first
             nomination cycle, competition rates are historically lower.
             <ul style="margin-top: 8px; margin-bottom: 0; padding-left: 20px">
@@ -373,9 +451,13 @@
           </div>
           <div class="contact-grid">
             <div class="contact-item">
-              <strong>🌐 Website:</strong><br><a href="https://www.cornyn.senate.gov/services/academy-nominations" target="_blank">cornyn.senate.gov</a><br><strong>📧 Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="58393b393c3d35213637353136392c3137362b183b372a362136762b3d36392c3d763f372e">[email&#160;protected]</a>
+              <strong>🌐 Website:</strong><br /><a
+                href="https://www.cornyn.senate.gov/services/academy-nominations"
+                target="_blank"
+                >cornyn.senate.gov</a
+              ><br /><strong>📧 Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f59496949190988c9b9a989c9b94819c9a9b86b5969a879b8c9bdb86909b948190db929a83">[email&#160;protected]</a>
             </div>
-            <div class="contact-item"><strong>📞 Dallas Regional:</strong><br>(972) 239-1310</div>
+            <div class="contact-item"><strong>📞 Dallas Regional:</strong><br />(972) 239-1310</div>
           </div>
           <p>
             <strong>Application Characteristics:</strong> Well-established, systematic online process. Applications
@@ -391,30 +473,56 @@
           </div>
           <div class="contact-grid">
             <div class="contact-item">
-              <strong>🌐 Website:</strong><br><a href="https://www.cruz.senate.gov/services/academy-nominations" target="_blank">cruz.senate.gov</a><br><strong>📧 Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="440527252021293d1b0a2b292d2a25302d2b2a37042736313e6a37212a2530216a232b32">[email&#160;protected]</a>
+              <strong>🌐 Website:</strong><br /><a
+                href="https://www.cruz.senate.gov/services/academy-nominations"
+                target="_blank"
+                >cruz.senate.gov</a
+              ><br /><strong>📧 Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="88c9ebe9ecede5f1d7c6e7e5e1e6e9fce1e7e6fbc8ebfafdf2a6fbede6e9fceda6efe7fe">[email&#160;protected]</a>
             </div>
-            <div class="contact-item"><strong>📞 Dallas Regional:</strong><br>(214) 599-8749</div>
+            <div class="contact-item"><strong>📞 Dallas Regional:</strong><br />(214) 599-8749</div>
           </div>
-          
+
           <!-- CRITICAL DATE ALERT -->
-          <div style="background: #fff5f5; border: 3px solid #e53e3e; border-radius: 8px; padding: 20px; margin: 16px 0; box-shadow: 0 4px 8px rgba(229, 62, 62, 0.2);">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-              <div style="font-size: 2rem;">🚨</div>
+          <div
+            style="
+              background: #fff5f5;
+              border: 3px solid #e53e3e;
+              border-radius: 8px;
+              padding: 20px;
+              margin: 16px 0;
+              box-shadow: 0 4px 8px rgba(229, 62, 62, 0.2);
+            "
+          >
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px">
+              <div style="font-size: 2rem">🚨</div>
               <div>
-                <p style="margin: 0; color: #c53030; font-size: 1.1rem; font-weight: 700; text-transform: uppercase;">CONFIRMED APPLICATION OPENING DATE</p>
-                <p style="margin: 4px 0 0 0; color: #742a2a; font-size: 0.9rem; font-weight: 500;">Mark Your Calendar - Class of 2031</p>
+                <p style="margin: 0; color: #c53030; font-size: 1.1rem; font-weight: 700; text-transform: uppercase">
+                  CONFIRMED APPLICATION OPENING DATE
+                </p>
+                <p style="margin: 4px 0 0 0; color: #742a2a; font-size: 0.9rem; font-weight: 500">
+                  Mark Your Calendar - Class of 2031
+                </p>
               </div>
             </div>
-            <div style="background: white; border-left: 4px solid #e53e3e; padding: 16px; border-radius: 4px;">
-              <p style="margin: 0; font-size: 1.3rem; font-weight: 800; color: #c53030; font-family: 'Merriweather', serif;">
+            <div style="background: white; border-left: 4px solid #e53e3e; padding: 16px; border-radius: 4px">
+              <p
+                style="
+                  margin: 0;
+                  font-size: 1.3rem;
+                  font-weight: 800;
+                  color: #c53030;
+                  font-family: 'Merriweather', serif;
+                "
+              >
                 📅 Friday, April 3, 2026
               </p>
-              <p style="margin: 8px 0 0 0; color: #4a5568; font-size: 0.95rem; line-height: 1.6;">
-                Applications for nominations to the <strong>Class of 2031</strong> will open and the online portal will go live on this date. Prepare all materials in advance to submit immediately when the portal opens.
+              <p style="margin: 8px 0 0 0; color: #4a5568; font-size: 0.95rem; line-height: 1.6">
+                Applications for nominations to the <strong>Class of 2031</strong> will open and the online portal will
+                go live on this date. Prepare all materials in advance to submit immediately when the portal opens.
               </p>
             </div>
           </div>
-          
+
           <p>
             <strong>Application Characteristics:</strong> Known for a rigorous review process with comprehensive
             checklists and strict timelines. Be ready to submit on opening day.
@@ -429,9 +537,11 @@
           </div>
           <div class="contact-grid">
             <div class="contact-item">
-              <strong>🌐 Website:</strong><br><a href="https://www.whitehouse.gov/contact/" target="_blank">whitehouse.gov/contact</a>
+              <strong>🌐 Website:</strong><br /><a href="https://www.whitehouse.gov/contact/" target="_blank"
+                >whitehouse.gov/contact</a
+              >
             </div>
-            <div class="contact-item"><strong>📬 Address:</strong><br>The White House, 1600 Pennsylvania Ave NW</div>
+            <div class="contact-item"><strong>📬 Address:</strong><br />The White House, 1600 Pennsylvania Ave NW</div>
           </div>
           <p>
             <strong>Strategic Note:</strong> Nationwide competition. Even with high competition, applying here is
@@ -465,7 +575,7 @@
       </div>
 
       <!-- LEVEL 2B: EMAIL SUB-INDEX -->
-      <div id="email-index" style="display: none">
+      <div id="email-index">
         <button onclick="showPage('index-page')" class="btn-back">← Back to Index</button>
 
         <header>
@@ -473,13 +583,15 @@
           <div class="subtitle">Select an Email Template to Copy</div>
         </header>
 
-        <p style="
+        <p
+          style="
             background: #fffaf0;
             padding: 16px;
             border-left: 4px solid #ed8936;
             border-radius: 4px;
             margin-bottom: 30px;
-          ">
+          "
+        >
           <strong>💡 Usage Instructions:</strong> Click on the office you want to email to view the template and copy
           it.
         </p>
@@ -537,21 +649,30 @@
       <!-- LEVEL 3: INDIVIDUAL EMAIL PAGES -->
 
       <!-- Email 1 Page -->
-      <div id="email-1" style="display: none">
+      <div id="email-1">
         <button onclick="showPage('email-index')" class="btn-back">← Back to Email Selection</button>
         <header>
           <h1>📧 Rep. Brandon Gill's Office</h1>
           <div class="subtitle">Email Template - Service Academy Nomination Inquiry</div>
         </header>
-        
+
         <!-- Email Address with Copy Button -->
-        <div style="background: #ebf8ff; border: 2px solid #3182ce; border-radius: 8px; padding: 20px; margin-bottom: 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div
+          style="background: #ebf8ff; border: 2px solid #3182ce; border-radius: 8px; padding: 20px; margin-bottom: 24px"
+        >
+          <div style="display: flex; justify-content: space-between; align-items: center">
             <div>
-              <p style="margin: 0; color: #2d3748; font-size: 0.85rem; font-weight: 600;">📬 SEND TO:</p>
-              <p id="email-address-1" style="margin: 5px 0 0 0; font-size: 1.1rem; font-family: monospace; color: #0a2540; font-weight: bold;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4c18147e7a0d2f2d282921350c212d2520622423393f29622b233a">[email&#160;protected]</a></p>
+              <p style="margin: 0; color: #2d3748; font-size: 0.85rem; font-weight: 600">📬 SEND TO:</p>
+              <p
+                id="email-address-1"
+                style="margin: 5px 0 0 0; font-size: 1.1rem; font-family: monospace; color: #0a2540; font-weight: bold"
+              >
+                <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4f1b177d790e2c2e2b2a22360f222e26236127203a3c2a61282039">[email&#160;protected]</a>
+              </p>
             </div>
-            <button onclick="copyToClipboard('email-address-1', this)" class="btn-copy" style="padding: 8px 16px;">📋 Copy Address</button>
+            <button onclick="copyToClipboard('email-address-1', this)" class="btn-copy" style="padding: 8px 16px">
+              📋 Copy Address
+            </button>
           </div>
         </div>
 
@@ -581,27 +702,36 @@ Respectfully,
 
 Dylan Lee
 2615 Hidden Knoll Trail, Frisco, TX 75034
-(626) 940-6078 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="05617c69646b76696060353d456268646c692b666a68">[email&#160;protected]</a>
+(626) 940-6078 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="284c514449465b444d4d1810684f45494144064b4745">[email&#160;protected]</a>
 Reedy High School, Class of 2027</div>
         </section>
       </div>
 
       <!-- Email 2 Page -->
-      <div id="email-2" style="display: none">
+      <div id="email-2">
         <button onclick="showPage('email-index')" class="btn-back">← Back to Email Selection</button>
         <header>
           <h1>📧 Senator John Cornyn's Office</h1>
           <div class="subtitle">Email Template - Service Academy Nomination Inquiry</div>
         </header>
-        
+
         <!-- Email Address with Copy Button -->
-        <div style="background: #ebf8ff; border: 2px solid #3182ce; border-radius: 8px; padding: 20px; margin-bottom: 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div
+          style="background: #ebf8ff; border: 2px solid #3182ce; border-radius: 8px; padding: 20px; margin-bottom: 24px"
+        >
+          <div style="display: flex; justify-content: space-between; align-items: center">
             <div>
-              <p style="margin: 0; color: #2d3748; font-size: 0.85rem; font-weight: 600;">📬 SEND TO:</p>
-              <p id="email-address-2" style="margin: 5px 0 0 0; font-size: 1.1rem; font-family: monospace; color: #0a2540; font-weight: bold;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2f4e4c4e4b4a425641404246414e5b4640415c6f4c405d415641015c4a414e5b4a01484059">[email&#160;protected]</a></p>
+              <p style="margin: 0; color: #2d3748; font-size: 0.85rem; font-weight: 600">📬 SEND TO:</p>
+              <p
+                id="email-address-2"
+                style="margin: 5px 0 0 0; font-size: 1.1rem; font-family: monospace; color: #0a2540; font-weight: bold"
+              >
+                <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c4a5a7a5a0a1a9bdaaaba9adaaa5b0adabaab784a7abb6aabdaaeab7a1aaa5b0a1eaa3abb2">[email&#160;protected]</a>
+              </p>
             </div>
-            <button onclick="copyToClipboard('email-address-2', this)" class="btn-copy" style="padding: 8px 16px;">📋 Copy Address</button>
+            <button onclick="copyToClipboard('email-address-2', this)" class="btn-copy" style="padding: 8px 16px">
+              📋 Copy Address
+            </button>
           </div>
         </div>
 
@@ -631,27 +761,36 @@ Respectfully,
 
 Dylan Lee
 2615 Hidden Knoll Trail, Frisco, TX 75034
-(626) 940-6078 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a3e23363b3429363f3f6a621a3d373b333674393537">[email&#160;protected]</a>
+(626) 940-6078 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dabea3b6bbb4a9b6bfbfeae29abdb7bbb3b6f4b9b5b7">[email&#160;protected]</a>
 Reedy High School, Class of 2027</div>
         </section>
       </div>
 
       <!-- Email 3 Page -->
-      <div id="email-3" style="display: none">
+      <div id="email-3">
         <button onclick="showPage('email-index')" class="btn-back">← Back to Email Selection</button>
         <header>
           <h1>📧 Senator Ted Cruz's Office</h1>
           <div class="subtitle">Email Template - Service Academy Nomination Inquiry</div>
         </header>
-        
+
         <!-- Email Address with Copy Button -->
-        <div style="background: #ebf8ff; border: 2px solid #3182ce; border-radius: 8px; padding: 20px; margin-bottom: 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div
+          style="background: #ebf8ff; border: 2px solid #3182ce; border-radius: 8px; padding: 20px; margin-bottom: 24px"
+        >
+          <div style="display: flex; justify-content: space-between; align-items: center">
             <div>
-              <p style="margin: 0; color: #2d3748; font-size: 0.85rem; font-weight: 600;">📬 SEND TO:</p>
-              <p id="email-address-3" style="margin: 5px 0 0 0; font-size: 1.1rem; font-family: monospace; color: #0a2540; font-weight: bold;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3e7f5d5f5a5b53476170515357505f4a5751504d7e5d4c4b44104d5b505f4a5b10595148">[email&#160;protected]</a></p>
+              <p style="margin: 0; color: #2d3748; font-size: 0.85rem; font-weight: 600">📬 SEND TO:</p>
+              <p
+                id="email-address-3"
+                style="margin: 5px 0 0 0; font-size: 1.1rem; font-family: monospace; color: #0a2540; font-weight: bold"
+              >
+                <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6223010306070f1b3d2c0d0f0b0c03160b0d0c1122011017184c11070c0316074c050d14">[email&#160;protected]</a>
+              </p>
             </div>
-            <button onclick="copyToClipboard('email-address-3', this)" class="btn-copy" style="padding: 8px 16px;">📋 Copy Address</button>
+            <button onclick="copyToClipboard('email-address-3', this)" class="btn-copy" style="padding: 8px 16px">
+              📋 Copy Address
+            </button>
           </div>
         </div>
 
@@ -681,26 +820,32 @@ Respectfully,
 
 Dylan Lee
 2615 Hidden Knoll Trail, Frisco, TX 75034
-(626) 940-6078 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acc8d5c0cdc2dfc0c9c99c94eccbc1cdc5c082cfc3c1">[email&#160;protected]</a>
+(626) 940-6078 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4d2934212c233e2128287d750d2a202c2421632e2220">[email&#160;protected]</a>
 Reedy High School, Class of 2027</div>
         </section>
       </div>
 
       <!-- Email 4 Page -->
-      <div id="email-4" style="display: none">
+      <div id="email-4">
         <button onclick="showPage('email-index')" class="btn-back">← Back to Email Selection</button>
         <header>
           <h1>📧 Vice President's Office</h1>
           <div class="subtitle">Email Template - Service Academy Nomination Inquiry</div>
         </header>
-        
+
         <!-- Email Address with Copy Button -->
-        <div style="background: #fff5f5; border: 2px solid #fc8181; border-radius: 8px; padding: 20px; margin-bottom: 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div style="flex: 1;">
-              <p style="margin: 0; color: #c53030; font-size: 0.85rem; font-weight: 600;">⚠️ EMAIL ADDRESS TBD</p>
-              <p style="margin: 5px 0 0 0; font-size: 0.95rem; color: #4a5568; line-height: 1.5;">
-                VP nomination contact information is being finalized. Check <a href="https://www.whitehouse.gov/contact/" target="_blank" style="color: #2b6cb0;">whitehouse.gov/contact</a> for updates or call (202) 456-1414.
+        <div
+          style="background: #fff5f5; border: 2px solid #fc8181; border-radius: 8px; padding: 20px; margin-bottom: 24px"
+        >
+          <div style="display: flex; justify-content: space-between; align-items: center">
+            <div style="flex: 1">
+              <p style="margin: 0; color: #c53030; font-size: 0.85rem; font-weight: 600">⚠️ EMAIL ADDRESS TBD</p>
+              <p style="margin: 5px 0 0 0; font-size: 0.95rem; color: #4a5568; line-height: 1.5">
+                VP nomination contact information is being finalized. Check
+                <a href="https://www.whitehouse.gov/contact/" target="_blank" style="color: #2b6cb0"
+                  >whitehouse.gov/contact</a
+                >
+                for updates or call (202) 456-1414.
               </p>
             </div>
           </div>
@@ -732,7 +877,7 @@ Respectfully,
 
 Dylan Lee
 2615 Hidden Knoll Trail, Frisco, TX 75034
-(626) 940-6078 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="89edf0e5e8e7fae5ececb9b1c9eee4e8e0e5a7eae6e4">[email&#160;protected]</a>
+(626) 940-6078 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d0b4a9bcb1bea3bcb5b5e0e890b7bdb1b9bcfeb3bfbd">[email&#160;protected]</a>
 Reedy High School, Class of 2027</div>
         </section>
       </div>
@@ -745,8 +890,8 @@ Reedy High School, Class of 2027</div>
 
         if (pass === 'D09202027') {
           document.getElementById('login-screen').style.display = 'none';
-          document.getElementById('protected-content').style.display = 'block';
-          document.getElementById('index-page').style.display = 'block';
+          document.getElementById('protected-content').classList.add('unlocked');
+          document.getElementById('index-page').classList.add('page-visible');
           errorMsg.style.display = 'none';
         } else {
           errorMsg.style.display = 'block';
@@ -765,11 +910,11 @@ Reedy High School, Class of 2027</div>
         // Hide all pages
         var pages = ['index-page', 'document-1', 'email-index', 'email-1', 'email-2', 'email-3', 'email-4'];
         pages.forEach((id) => {
-          document.getElementById(id).style.display = 'none';
+          document.getElementById(id).classList.remove('page-visible');
         });
 
         // Show requested page
-        document.getElementById(pageId).style.display = 'block';
+        document.getElementById(pageId).classList.add('page-visible');
         window.scrollTo(0, 0);
       }
 
@@ -794,7 +939,6 @@ Reedy High School, Class of 2027</div>
         }, 2000);
       }
     </script>
-  
-
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9cf00f68b954bcc5","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.9.1","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
-</body></html>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9cf0346fda736b39","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.9.1","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
